@@ -1,0 +1,19 @@
+.card {
+  margin: 17px 62px 17px 31px;
+  padding: 10px;
+  background-color: #F3F3F3;
+  border-radius: 8px;
+  * + * {
+    margin-top: 7px;
+  }
+}
+
+.attribute {
+  span {
+    color: #A3A3A3;
+  }
+  &:last-child {
+    display: flex;
+    justify-content: space-between;
+  }
+}

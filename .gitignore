@@ -9,7 +9,7 @@
 /coverage
 
 # production
-/build
+/my-web-altyn/build
 
 # misc
 .DS_Store
@@ -269,23 +269,23 @@ fabric.properties
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/frontend/node_modules
-/frontend/.pnp
-/frontend.pnp.js
+/my-web-altyn/node_modules
+/my-web-altyn/.pnp
+/my-web-altyn.pnp.js
 
 # testing
-/frontend/coverage
+/my-web-altyn/coverage
 
 # production
-/frontend/build
+/my-web-altyn/build
 
 # misc
-/frontend.DS_Store
-/frontend.env.local
-/frontend.env.development.local
-/frontend.env.test.local
-/frontend.env.production.local
+/my-web-altyn.DS_Store
+/my-web-altyn.env.local
+/my-web-altyn.env.development.local
+/my-web-altyn.env.test.local
+/my-web-altyn.env.production.local
 
-/frontendnpm-debug.log*
-/frontendyarn-debug.log*
-/frontendyarn-error.log*
+/my-web-altynnpm-debug.log*
+/my-web-altynyarn-debug.log*
+/my-web-altynyarn-error.log*
