@@ -1,0 +1,48 @@
+main {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: auto;
+  h2 {
+    padding: 20px 30px;
+  }
+  .count {
+    text-align: end;
+    margin: 0 62px 25px ;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+    border-radius: 8px;
+    border: 1px solid #F3F3F3;
+    padding: 20px 15px;
+    * + * {
+      margin-top: 10px;
+    }
+  }
+}
+
+.field {
+  label {
+    display: block;
+  }
+  input {
+    min-width: 50%;
+    height: 22px;
+    padding: 10px 5px;
+    border-radius: 5px;
+    border: 1px solid #D8D8D8;
+  }
+  textarea {
+    width: 100%;
+    min-height: 55px;
+    resize: none;
+    border-radius: 5px;
+    border: 1px solid #D8D8D8;
+  }
+  input.error {
+    border: 1px solid red;
+  }
+}

@@ -1,0 +1,29 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 50px 0 50px;
+  h2 {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+form {
+  button {
+    position: relative;
+    align-self: end;
+    top: 70px;
+    background-color: #52CF4F;
+  }
+  .readonly {
+    background-color: #AFAFAF;
+  }
+
+  input:read-only {
+    color: rgba(0, 0, 0, 0.3);
+  }
+  input {
+    color: #000000;
+  }
+}
