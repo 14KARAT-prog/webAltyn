@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="/sales">Продажи</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/products">Продукты</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    <div class="container mt-3">
+      <div class="d-flex justify-content-between align-items-center">
+        <h1>{{ title }}</h1>
+        <p><a href="{% url 'addSales' %}" class="btn btn-dark" role="button">Добавить</a></p>
+      </div>
+
+      <div class="form-group">
+        <label for="inputDate">Выберите дату:</label>
+        <input type="date" class="form-control w-25" id="visibleDate">
+        <button class="btn btn-outline-dark mt-2" id="visibleButton">Скрыть</button>
+      </div>
+
+      <table class="table table-striped mt-3">
+        <thead>
+          <tr class="table-dark">
+            <th scope="col">Дата продажи</th>
+            <th scope="col">Наименование</th>
+            <th scope="col">Продажи в шт.</th>
+            <th scope="col">Продажи в руб.</th>
+            <th scope="col">Редактирование</th>
+          </tr>
+        </thead>
+        <tbody id="tableRow">
+          {% for item in sales %}
+          <tr data-date="{{ item.date|date:'Y-m-d' }}">
+            <td>{{ item.date }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.amount }}</td>
+            <td>{% widthratio item.amount 1 item.name.price %}</td>
+            <td><a href="{% url 'redaction' item.pk %}" class="btn">Редактировать</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <script language="JavaScript">
+        const visibleDate = document.getElementById("visibleDate");
+        const visibleButton = document.getElementById("visibleButton");
+        const table = document.getElementById('tableRow');
+
+        visibleButton.addEventListener('click', () => {
+          if (visibleDate.value) {
+            const datParseVisibleDate = Date.parse(visibleDate.value);
+            for (value of table.children) {
+              const datParseValue = Date.parse(value.dataset.date);
+              if (datParseValue === datParseVisibleDate) {
+                value.classList.add('d-none');
+              }
+            }
+          }
+        })
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
